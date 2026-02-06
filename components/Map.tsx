@@ -48,7 +48,7 @@ export default function Map({ stations, activeId, onSelect, center, fuel }: MapP
   const mapCenter = center ?? { lat: 51.5072, lng: -0.1276 };
 
   const stationIcons = useMemo(() => {
-    return stations.reduce<Record<string, L.DivIcon>>((acc, station) => {
+    return stations.reduce<Record<string, ReturnType<typeof buildPriceIcon>>>((acc, station) => {
       const price = fuel === "petrol" ? station.prices.petrol : station.prices.diesel;
       acc[station.nodeId] = buildPriceIcon(price, station.nodeId === activeId);
       return acc;
