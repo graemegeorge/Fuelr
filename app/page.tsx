@@ -19,7 +19,7 @@ const DEFAULT_CENTER = { lat: 51.5072, lng: -0.1276 };
 
 export default function Home() {
   const [fuel, setFuel] = useState<FuelKind>("petrol");
-  const [sortCheapest, setSortCheapest] = useState(true);
+  const [sortCheapest, setSortCheapest] = useState(false);
   const [sortNearest, setSortNearest] = useState(true);
   const [postcode, setPostcode] = useState("");
   const [theme, setTheme] = useState<"dark" | "light">("dark");

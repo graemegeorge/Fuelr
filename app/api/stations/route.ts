@@ -25,7 +25,7 @@ export async function GET(request: NextRequest) {
 
   const { stations, updatedAt } = await getStations();
 
-  const enriched: EnrichedStation[] = stations
+  const enriched = stations
     .filter((station) => !station.permanent_closure && !station.temporary_closure)
     .map((station) => {
       const coords = getLatLngFromStation(station);
@@ -96,5 +96,5 @@ type EnrichedStation = {
   lng: number;
   distanceKm: number;
   prices: { petrol?: number; diesel?: number };
-  priceSelected?: number;
+  priceSelected: number | undefined;
 };
